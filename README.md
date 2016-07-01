@@ -10,3 +10,27 @@ RESULTS: The mean number of detected laboratory abnormality signals for each dru
 CONCLUSION: The results of this study demonstrated that the Comparison on Extreme Laboratory Test results algorithm described herein was extremely effective in detecting the signals characteristic of adverse drug reactions. This algorithm can be regarded as a useful signal detection tool, which can be routinely applied to EMR data.
 
 reference: http://www.ncbi.nlm.nih.gov/pubmed/?term=21472818
+
+Getting Started
+===============
+'''r
+library(Cert)
+library(SqlRender)
+library(DatabaseConnector)
+library(plyr)
+connectionDetails<-DatabaseConnector::createConnectionDetails(dbms="sql server",
+                                                              server="IP",
+                                                              port="PORT",
+                                                              schema="SCHEMA",
+                                                              user="ID",
+                                                              password="PW")
+conn<-DatabaseConnector::connect(connectionDetails)
+renderTest()
+queryTest()
+generateCertDataSet(conn)
+paired_t<-runPairedTTest(conn)
+paired_t
+mcnemars<-runMcNemarTest(conn)
+mcnemars
+'''
+
