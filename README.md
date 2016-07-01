@@ -13,7 +13,7 @@ reference: http://www.ncbi.nlm.nih.gov/pubmed/?term=21472818
 
 Getting Started
 ===============
-'''r
+```r
 library(Cert)
 library(SqlRender)
 library(DatabaseConnector)
@@ -32,5 +32,5 @@ paired_t<-runPairedTTest(conn)
 paired_t
 mcnemars<-runMcNemarTest(conn)
 mcnemars
-'''
+```
 
