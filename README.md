@@ -18,6 +18,7 @@ install.packages("devtools")
 library(devtools)
 install_github("ohdsi/SqlRender", args="--no-multiarch")
 install_github("ohdsi/DatabaseConnector", args="--no-multiarch")
+install_github("ohdsi/Cert", args="--no-multiarch")
 
 library(SqlRender)
 library(DatabaseConnector)
