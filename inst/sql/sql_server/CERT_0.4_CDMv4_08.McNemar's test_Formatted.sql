@@ -1,6 +1,6 @@
-{DEFAULT @table = 'SJ_CERT_CDM4' }
+{DEFAULT @database = 'SJ_CERT_CDM4' }
 
-USE [@table];
+USE [@database];
 
 -- McNemar's test
 SELECT DRUG_NAME, LAB_NAME, RESULT_TYPE, JUDGE_BEFORE, JUDGE_AFTER

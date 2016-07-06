@@ -14,23 +14,29 @@ reference: http://www.ncbi.nlm.nih.gov/pubmed/?term=21472818
 Getting Started
 ===============
 ```r
-library(Cert)
+install.packages("devtools")
+library(devtools)
+install_github("ohdsi/SqlRender", args="--no-multiarch")
+install_github("ohdsi/DatabaseConnector", args="--no-multiarch")
+
 library(SqlRender)
 library(DatabaseConnector)
-library(plyr)
+library(Cert)
 connectionDetails<-DatabaseConnector::createConnectionDetails(dbms="sql server",
                                                               server="IP",
                                                               port="PORT",
                                                               schema="SCHEMA",
                                                               user="ID",
                                                               password="PW")
-conn<-DatabaseConnector::connect(connectionDetails)
-renderTest()
-queryTest()
-generateCertDataSet(conn)
-paired_t<-runPairedTTest(conn)
+connectionDetails$database<-"DATABASE_NAME"
+labtest<-createLabtesTable(c(3018677,3006923,3013721),
+                           c("aPTT","ALT","AST"),
+                           c("Both","Hyper","Hyper"))
+generateCertDataSet(connectionDetails, drug_list=c("Ciprofloxacin"), labtest_list=labtest)
+paired_t<-runPairedTTest(connectionDetails)
 paired_t
-mcnemars<-runMcNemarTest(conn)
+mcnemars<-runMcNemarTest(connectionDetails)
 mcnemars
+summary<-getCertResultDataSet(connectionDetails)
 ```
 
