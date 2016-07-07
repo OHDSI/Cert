@@ -93,7 +93,7 @@ runMcNemarTest<-function(connectionDetails){
   })
 }
 
-createLabtesTable<-function(id,name,type){
+createLabtestDataFrame<-function(id,name,type){
   df<-data.frame(LAB_ID=c(id),LAB_NAME=c(name),ABNORM_TYPE=c(type))
 }
 
