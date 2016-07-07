@@ -23,12 +23,14 @@ generateCertDataSet<-function(connectionDetails, drug_list=NA, labtest_list=NA){
     renderedSql<-SqlRender::loadRenderTranslateSql("CERT_0.4_CDMv4_Formatted.sql",
                                                    packageName="Cert",
                                                    dbms=connectionDetails$dbms,
-                                                   database=connectionDetails$database)
+                                                   target_database=connectionDetails$target_database,
+                                                   cdm_database=connectionDetails$cdm_database)
   }else{
     renderedSql<-SqlRender::loadRenderTranslateSql("CERT_0.4_CDMv4_Formatted.sql",
                                                    packageName="Cert",
                                                    dbms=connectionDetails$dbms,
-                                                   database=connectionDetails$database,
+                                                   target_database=connectionDetails$target_database,
+                                                   cdm_database=connectionDetails$cdm_database,
                                                    drug_list=paste("'",drug_list,"'",sep=""))
   }
   
@@ -42,7 +44,8 @@ getCertResultDataSet<-function(connectionDetails){
   renderedSql<-SqlRender::loadRenderTranslateSql("CERT_0.4_CDMv4_09.Summary_Formatted.sql",
                                                  packageName="Cert",
                                                  dbms=connectionDetails$dbms,
-                                                 database=connectionDetails$database)
+                                                 target_database=connectionDetails$target_database,
+                                                 cdm_database=connectionDetails$cdm_database)
   data<-DatabaseConnector::querySql(conn, renderedSql)
   dbDisconnect(conn)
   data
@@ -54,7 +57,8 @@ getDataForPairedTTest<-function(connectionDetails){
   renderedSql<-SqlRender::loadRenderTranslateSql("CERT_0.4_CDMv4_07.Paired t-test_Formatted.sql",
                                                  packageName="Cert",
                                                  dbms=connectionDetails$dbms,
-                                                 database=connectionDetails$database)
+                                                 target_database=connectionDetails$target_database,
+                                                 cdm_database=connectionDetails$cdm_database)
   data<-DatabaseConnector::querySql(conn, renderedSql)
   dbDisconnect(conn)
   data
@@ -66,7 +70,8 @@ getDataForMcNemarTest<-function(connectionDetails){
   renderedSql<-SqlRender::loadRenderTranslateSql("CERT_0.4_CDMv4_08.McNemar's test_Formatted.sql",
                                                  packageName="Cert",
                                                  dbms=connectionDetails$dbms,
-                                                 database=connectionDetails$database)
+                                                 target_database=connectionDetails$target_database,
+                                                 cdm_database=connectionDetails$cdm_database)
   data<-DatabaseConnector::querySql(conn, renderedSql)
   dbDisconnect(conn)
   data

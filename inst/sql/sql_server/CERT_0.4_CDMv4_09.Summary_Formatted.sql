@@ -1,6 +1,6 @@
-{DEFAULT @database = 'SJ_CERT_CDM4' }
+{DEFAULT @target_database = 'SJ_CERT_CDM4' }
 
-USE [@database];
+USE [@target_database];
 
 -- get SUMMARY
 SELECT *

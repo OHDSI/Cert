@@ -11,7 +11,7 @@ CONCLUSION: The results of this study demonstrated that the Comparison on Extrem
 
 reference: http://www.ncbi.nlm.nih.gov/pubmed/?term=21472818
 
-Getting Started
+Getting Started (ONLY CDMv4)
 ===============
 ```r
 install.packages("devtools")
@@ -29,7 +29,8 @@ connectionDetails<-DatabaseConnector::createConnectionDetails(dbms="sql server",
                                                               schema="SCHEMA",
                                                               user="ID",
                                                               password="PW")
-connectionDetails$database<-"DATABASE_NAME"
+connectionDetails$target_database<-"TARGET_DATABASE_NAME"
+connectionDetails$cdm_database<-"CDM_DATABASE_NAME"
 labtest<-createLabtesTable(c(3018677,3006923,3013721),
                            c("aPTT","ALT","AST"),
                            c("Both","Hyper","Hyper"))
