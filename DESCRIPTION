@@ -6,8 +6,7 @@ Description: What the package does (one paragraph).
 Depends:
     R (>= 3.2.5),
 	plyr,
-	broom
-Imports:
+	broom,
 	SqlRender,
 	DatabaseConnector
 License: What license is it under?
