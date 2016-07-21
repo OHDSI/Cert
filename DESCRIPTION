@@ -5,7 +5,11 @@ Authors@R: person("Sungjae", "Jung", email = "sungjae.2425@gmail.com", role = c(
 Description: What the package does (one paragraph).
 Depends:
     R (>= 3.2.5),
-	plyr
+	plyr,
+	broom
+Imports:
+	SqlRender,
+	DatabaseConnector
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true

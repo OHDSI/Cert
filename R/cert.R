@@ -81,7 +81,7 @@ runPairedTTest<-function(connectionDetails){
   paired<-getDataForPairedTTest(connectionDetails)
   
   plyr::ddply(paired, .(DRUG_NAME,LAB_NAME,RESULT_TYPE), function(x){
-    c(paired_t_test=t.test(x$RESULT_BEFORE,x$RESULT_AFTER, paired=T)$p.value)
+    broom::tidy(t.test(x$RESULT_BEFORE,x$RESULT_AFTER, paired=T))
   })
 }
 
@@ -89,7 +89,7 @@ runMcNemarTest<-function(connectionDetails){
   mcnemar<-getDataForMcNemarTest(connectionDetails)
   
   plyr::ddply(mcnemar, .(DRUG_NAME,LAB_NAME,RESULT_TYPE), function(x){
-    c(mcnemar_test=mcnemar.test(x$JUDGE_BEFORE,x$JUDGE_AFTER)$p.value)
+    broom::tidy(mcnemar.test(x$JUDGE_BEFORE,x$JUDGE_AFTER))
   })
 }
 
