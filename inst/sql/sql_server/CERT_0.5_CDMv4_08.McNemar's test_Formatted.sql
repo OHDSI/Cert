@@ -1,0 +1,7 @@
+{DEFAULT @target_database = 'SJ_CERT_CDM4' }
+
+USE [@target_database];
+
+-- McNemar's test
+SELECT DRUG_NAME, LAB_NAME, RESULT_TYPE, JUDGE_BEFORE, JUDGE_AFTER
+FROM SUMMARY
