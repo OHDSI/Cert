@@ -31,14 +31,25 @@ connectionDetails<-DatabaseConnector::createConnectionDetails(dbms="sql server",
                                                               password="PW")
 connectionDetails$target_database<-"TARGET_DATABASE_NAME"
 connectionDetails$cdm_database<-"CDM_DATABASE_NAME"
+
+targetdrug<-createTargetDrugDataFrame(c("CIPROFLOXACIN"),
+                                      c("Anatomical Therapeutic Chemical Classification"),
+                                      c("J01MA02","S01AX13","S02AA15","S03AA07"))
 labtest<-createLabtestDataFrame(c(3018677,3006923,3013721),
-								c("aPTT","ALT","AST"),
-								c("Both","Hyper","Hyper"))
-generateCertDataSet(connectionDetails, drug_list=c("Ciprofloxacin"), labtest_list=labtest)
+                                c("aPTT","ALT","AST"),
+                                c("Both","Hyper","Hyper"))
+generateCertDataSet(connectionDetails, drug_list=targetdrug, labtest_list=labtest)
+
 paired_t<-runPairedTTest(connectionDetails)
 paired_t
+
 mcnemars<-runMcNemarTest(connectionDetails)
 mcnemars
+
 summary<-getCertResultDataSet(connectionDetails)
+head(summary)
+
+demographics<-getCertDemographics(connectionDetails)
+head(demographics)
 ```
 
