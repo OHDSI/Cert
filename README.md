@@ -35,6 +35,10 @@ connectionDetails$cdm_database<-"CDM_DATABASE_NAME"
 targetdrug<-createTargetDrugDataFrame(c("CIPROFLOXACIN"),
                                       c("Anatomical Therapeutic Chemical Classification"),
                                       c("J01MA02","S01AX13","S02AA15","S03AA07"))
+targetdrug<-addTargetDrugDataFrame(targetdrug,
+                                   c("ROSUVASTATIN"),
+                                   c("Anatomical Therapeutic Chemical Classification"),
+                                   c("C10AA07"))
 labtest<-createLabtestDataFrame(c(3018677,3006923,3013721),
                                 c("aPTT","ALT","AST"),
                                 c("Both","Hyper","Hyper"))
