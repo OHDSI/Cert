@@ -105,6 +105,11 @@ createTargetDrugDataFrame<-function(name,class,code){
   df<-data.frame(DRUG_NAME=c(name),DRUG_CLASS=c(class),DRUG_CODE=c(code))
 }
 
+addTargetDrugDataFrame<-function(origin,name,class,code){
+  df<-data.frame(DRUG_NAME=c(name),DRUG_CLASS=c(class),DRUG_CODE=c(code))
+  rbind(origin,df)
+}
+
 createLabtestDataFrame<-function(id,name,type){
   df<-data.frame(LAB_ID=c(id),LAB_NAME=c(name),ABNORM_TYPE=c(type))
 }
