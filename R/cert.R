@@ -13,7 +13,8 @@ queryTest<-function(connectionDetails){
   data
 }
 
-generateCertDataSet<-function(connectionDetails, drug_list=NA, labtest_list=NA){
+generateCertDataSet<-function(connectionDetails, drug_list=NA, labtest_list=NA
+                              , date_from='2001-01-01', date_to='2010-03-31'){
   conn<-DatabaseConnector::connect(connectionDetails)
 
   if(!is.na(drug_list)){
@@ -23,11 +24,13 @@ generateCertDataSet<-function(connectionDetails, drug_list=NA, labtest_list=NA){
     DatabaseConnector::insertTable(conn, "LABTEST_LIST", labtest_list)
   }
   
-  renderedSql<-SqlRender::loadRenderTranslateSql("CERT_0.5_CDMv4_Formatted.sql",
+  renderedSql<-SqlRender::loadRenderTranslateSql("CERT_0.6_CDMv4_Formatted.sql",
                                                  packageName="Cert",
                                                  dbms=connectionDetails$dbms,
                                                  target_database=connectionDetails$target_database,
-                                                 cdm_database=connectionDetails$cdm_database)
+                                                 cdm_database=connectionDetails$cdm_database,
+                                                 date_from=date_from,
+                                                 date_to=date_to)
   
   DatabaseConnector::executeSql(conn, renderedSql)
   dbDisconnect(conn)
