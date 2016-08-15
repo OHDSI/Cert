@@ -1,10 +1,31 @@
 
+#' Test rendering query
+#' 
+#' @details
+#' for testing
+#' 
+#' @return
+#' a query form string
+#' 
+#' @export
 renderTest<-function(){
   SqlRender::loadRenderTranslateSql("temp.sql",
                                     packageName="Cert",
                                     dbms="sql server")
 }
 
+#' Test query database
+#' 
+#' @details
+#' for testing
+#' 
+#' @param connectionDetails
+#' connectionDetails information
+#' 
+#' @return
+#' a data frame
+#' 
+#' @export
 queryTest<-function(connectionDetails){
   conn<-DatabaseConnector::connect(connectionDetails)
   
@@ -13,6 +34,15 @@ queryTest<-function(connectionDetails){
   data
 }
 
+#' Generate Cert dataset
+#' 
+#' @details
+#' initial testing
+#' 
+#' @return
+#' nothing
+#' 
+#' @export
 generateCertDataSet<-function(connectionDetails, drug_list=NA, labtest_list=NA
                               , date_from='2001-01-01', date_to='2010-03-31'){
   conn<-DatabaseConnector::connect(connectionDetails)
@@ -36,6 +66,15 @@ generateCertDataSet<-function(connectionDetails, drug_list=NA, labtest_list=NA
   dbDisconnect(conn)
 }
 
+#' Get Cert result dataset
+#' 
+#' @details
+#' initial testing
+#' 
+#' @return
+#' a data frame from summary table
+#' 
+#' @export
 getCertResultDataSet<-function(connectionDetails){
   conn<-DatabaseConnector::connect(connectionDetails)
   
@@ -49,6 +88,15 @@ getCertResultDataSet<-function(connectionDetails){
   data
 }
 
+#' Get Cert demographics dataset
+#' 
+#' @details
+#' initial testing
+#' 
+#' @return
+#' a data frame from demographics table
+#' 
+#' @export
 getCertDemographics<-function(connectionDetails){
   conn<-DatabaseConnector::connect(connectionDetails)
   
@@ -62,6 +110,15 @@ getCertDemographics<-function(connectionDetails){
   data
 }
 
+#' Get Cert result dataset for paired t-test
+#' 
+#' @details
+#' initial testing
+#' 
+#' @return
+#' a data frame from summary table
+#' 
+#' @export
 getDataForPairedTTest<-function(connectionDetails){
   conn<-DatabaseConnector::connect(connectionDetails)
   
@@ -75,6 +132,15 @@ getDataForPairedTTest<-function(connectionDetails){
   data
 }
 
+#' Get Cert result dataset for McNemar's test
+#' 
+#' @details
+#' initial testing
+#' 
+#' @return
+#' a data frame from summary table
+#' 
+#' @export
 getDataForMcNemarTest<-function(connectionDetails){
   conn<-DatabaseConnector::connect(connectionDetails)
   
@@ -88,6 +154,15 @@ getDataForMcNemarTest<-function(connectionDetails){
   data
 }
 
+#' Run paried t-test
+#' 
+#' @details
+#' initial testing
+#' 
+#' @return
+#' a data frame
+#' 
+#' @export
 runPairedTTest<-function(connectionDetails){
   paired<-getDataForPairedTTest(connectionDetails)
   
@@ -96,6 +171,15 @@ runPairedTTest<-function(connectionDetails){
   })
 }
 
+#' Run McNemar's test
+#' 
+#' @details
+#' initial testing
+#' 
+#' @return
+#' a data frame
+#' 
+#' @export
 runMcNemarTest<-function(connectionDetails){
   mcnemar<-getDataForMcNemarTest(connectionDetails)
   
@@ -104,15 +188,42 @@ runMcNemarTest<-function(connectionDetails){
   })
 }
 
+#' Create data frame for set a target drug
+#' 
+#' @details
+#' initial testing
+#' 
+#' @return
+#' nothing
+#' 
+#' @export
 createTargetDrugDataFrame<-function(name,class,code){
   df<-data.frame(DRUG_NAME=c(name),DRUG_CLASS=c(class),DRUG_CODE=c(code))
 }
 
+#' Add into TargetDrugDataFrame
+#' 
+#' @details
+#' initial testing
+#' 
+#' @return
+#' nothing
+#' 
+#' @export
 addTargetDrugDataFrame<-function(origin,name,class,code){
   df<-data.frame(DRUG_NAME=c(name),DRUG_CLASS=c(class),DRUG_CODE=c(code))
   rbind(origin,df)
 }
 
+#' Create data frame for set a target labtest
+#' 
+#' @details
+#' initial testing
+#' 
+#' @return
+#' nothing
+#' 
+#' @export
 createLabtestDataFrame<-function(id,name,type){
   df<-data.frame(LAB_ID=c(id),LAB_NAME=c(name),ABNORM_TYPE=c(type))
 }

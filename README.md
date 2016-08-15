@@ -42,7 +42,8 @@ targetdrug<-addTargetDrugDataFrame(targetdrug,
 labtest<-createLabtestDataFrame(c(3018677,3006923,3013721),
                                 c("aPTT","ALT","AST"),
                                 c("Both","Hyper","Hyper"))
-generateCertDataSet(connectionDetails, drug_list=targetdrug, labtest_list=labtest)
+generateCertDataSet(connectionDetails, drug_list=targetdrug, labtest_list=labtest
+                    , date_from="2001-01-01", date_to="2010-03-31")
 
 paired_t<-runPairedTTest(connectionDetails)
 paired_t
