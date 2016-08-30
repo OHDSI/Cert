@@ -7,12 +7,9 @@
 renderTest()
 }
 \value{
-a query form string
+A query form string
 }
 \description{
-Test rendering query
-}
-\details{
-for testing
+Test rendering functionality
 }
 

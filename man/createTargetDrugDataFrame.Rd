@@ -2,17 +2,21 @@
 % Please edit documentation in R/cert.R
 \name{createTargetDrugDataFrame}
 \alias{createTargetDrugDataFrame}
-\title{Create data frame for set a target drug}
+\title{Create data frame for a target drug information}
 \usage{
 createTargetDrugDataFrame(name, class, code)
 }
+\arguments{
+\item{name}{Name of drug}
+
+\item{class}{Classification of drug}
+
+\item{code}{Drug code in a specific classification}
+}
 \value{
-nothing
+A data frame
 }
 \description{
-Create data frame for set a target drug
-}
-\details{
-initial testing
+Create data frame for a target drug information
 }
 

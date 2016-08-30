@@ -2,17 +2,22 @@
 % Please edit documentation in R/cert.R
 \name{createLabtestDataFrame}
 \alias{createLabtestDataFrame}
-\title{Create data frame for set a target labtest}
+\title{Create data frame for a laboratory test information}
 \usage{
 createLabtestDataFrame(id, name, type)
 }
+\arguments{
+\item{id}{OMOP CONCEPT ID of laboratory test}
+
+\item{name}{Name of Laboratory test
+this name will be used for aggregation}
+
+\item{type}{Laboratory test abnormality type}
+}
 \value{
-nothing
+A data frame
 }
 \description{
-Create data frame for set a target labtest
-}
-\details{
-initial testing
+Create data frame for a laboratory test information
 }
 

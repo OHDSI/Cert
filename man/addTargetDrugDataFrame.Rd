@@ -2,17 +2,23 @@
 % Please edit documentation in R/cert.R
 \name{addTargetDrugDataFrame}
 \alias{addTargetDrugDataFrame}
-\title{Add into TargetDrugDataFrame}
+\title{Add a target drug information into existing TargetDrugDataFrame}
 \usage{
 addTargetDrugDataFrame(origin, name, class, code)
 }
+\arguments{
+\item{origin}{Name of existing TargetDrugDataFrame variable}
+
+\item{name}{Name of drug}
+
+\item{class}{Classification of drug}
+
+\item{code}{Drug code in a specific classification}
+}
 \value{
-nothing
+A data frame
 }
 \description{
-Add into TargetDrugDataFrame
-}
-\details{
-initial testing
+Add a target drug information into existing TargetDrugDataFrame
 }
 
